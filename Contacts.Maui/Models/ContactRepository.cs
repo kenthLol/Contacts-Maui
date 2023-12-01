@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GoogleGson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Google.Crypto.Tink.Jwt;
 
 namespace Contacts.Maui.Models;
 
@@ -61,5 +63,14 @@ public static class ContactRepository
         var maxId = _contacts.Max(x => x.ContactId);
         contact.ContactId = maxId + 1;
         _contacts.Add(contact);
+    }
+
+    public static void DeleteContact(int ContactId)
+    {
+        var contact = _contacts.FirstOrDefault(x => x.ContactId == ContactId);
+        if(contact != null)
+        {
+            _contacts.Remove(contact);
+        }
     }
 }
