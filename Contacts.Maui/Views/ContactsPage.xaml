@@ -6,11 +6,18 @@
 
     <Grid 
           Padding="5"
-          RowDefinitions="*, 50"
+          RowDefinitions="50, *, 50"
           ColumnDefinitions="*">
+        <SearchBar 
+            x:Name="SearchBar"
+            Grid.Row="0"
+            Grid.Column="0"
+            Placeholder="Buscar contacto"
+            TextChanged="SearchBar_TextChanged">
+        </SearchBar>
         
         <ListView
-            Grid.Row="0"
+            Grid.Row="1"
             Grid.Column="0"
             x:Name="ListContacts" 
             BackgroundColor="Transparent"
@@ -37,7 +44,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Grid.Row="1"
+        <Button Grid.Row="2"
                 Grid.Column="0"
                 x:Name="btnAdd" 
                 Text="Agregar Contacto" 
