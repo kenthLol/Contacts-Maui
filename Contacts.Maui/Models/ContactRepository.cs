@@ -54,7 +54,12 @@ public static class ContactRepository
             contactToUpdate.Phone = contact.Phone;
             contactToUpdate.Address = contact.Address;
         }
+    }
 
-        
+    public static void AddContact(Contact contact)
+    {
+        var maxId = _contacts.Max(x => x.ContactId);
+        contact.ContactId = maxId + 1;
+        _contacts.Add(contact);
     }
 }
